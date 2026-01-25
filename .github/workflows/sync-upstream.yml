@@ -15,7 +15,7 @@ jobs:
       - name: Sync upstream changes
         uses: aormsby/Fork-Sync-With-Upstream-action@v3.4
         with:
-          upstream_sync_repo: usuario/repositorio-original # <-- MUDE AQUI
+          upstream_sync_repo: BoringBoredom/PC-Optimization-Hub
           upstream_sync_branch: main # <-- A branch do original
           target_sync_branch: main # <-- A sua branch que será atualizada
           upstream_pull_args: '--allow-unrelated-histories'
