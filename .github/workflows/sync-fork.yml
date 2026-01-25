@@ -1,0 +1,22 @@
+name: Sync Fork
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Roda todo dia às 00:00 UTC
+  workflow_dispatch: # Permite rodar manualmente
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout target repo
+        uses: actions/checkout@v3
+        with:
+          ref: main # Sua branch no fork
+
+      - name: Sync upstream
+        uses: ahmadnassri/action-workflow-dispatch@v2
+        with:
+          repo: https://github.com/BoringBoredom/PC-Optimization-Hub.git # Ex: facebook/react
+          branch: main # Branch do original
+          token: ${{ secrets.GITHUB_TOKEN }}
